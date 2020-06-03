@@ -1,0 +1,195 @@
+<template>
+    <div class="gods">
+      <div v-if="godsChose == 1">
+        <ul>
+          <li @click="liClick">商品11</li>
+          <li>商品12</li>
+          <li>商品13</li>
+          <li>商品14</li>
+          <li>商品15</li>
+          <li>商品16</li>
+          <li>商品17</li>
+          <li>商品18</li>
+          <li>商品19</li>
+          <li>商品110</li>
+          <li>商品111</li>
+          <li>商品112</li>
+          <li>商品113</li>
+          <li>商品114</li>
+          <li>商品115</li>
+          <li>商品116</li>
+          <li>商品117</li>
+          <li>商品118</li>
+          <li>商品119</li>
+          <li>商品120</li>
+          <li>商品121</li>
+          <li>商品122</li>
+          <li>商品123</li>
+          <li>商品124</li>
+          <li>商品125</li>
+          <li>商品126</li>
+          <li>商品127</li>
+          <li>商品128</li>
+          <li>商品129</li>
+          <li>商品130</li>
+          <li>商品131</li>
+          <li>商品132</li>
+          <li>商品133</li>
+          <li>商品134</li>
+          <li>商品135</li>
+          <li>商品136</li>
+          <li>商品137</li>
+          <li>商品138</li>
+          <li>商品139</li>
+          <li>商品140</li>
+          <li>商品141</li>
+          <li>商品142</li>
+          <li>商品143</li>
+          <li>商品144</li>
+          <li>商品145</li>
+          <li>商品146</li>
+          <li>商品147</li>
+          <li>商品148</li>
+          <li>商品149</li>
+          <li>商品150</li>
+        </ul>
+      </div>
+      <div v-if="godsChose == 2">
+        <ul>
+          <li @click="liClick">列表21</li>
+          <li>列表22</li>
+          <li>列表23</li>
+          <li>列表24</li>
+          <li>列表25</li>
+          <li>列表26</li>
+          <li>列表27</li>
+          <li>列表28</li>
+          <li>列表29</li>
+          <li>列表210</li>
+          <li>列表211</li>
+          <li>列表212</li>
+          <li>列表213</li>
+          <li>列表214</li>
+          <li>列表215</li>
+          <li>列表216</li>
+          <li>列表217</li>
+          <li>列表218</li>
+          <li>列表219</li>
+          <li>列表220</li>
+          <li>列表221</li>
+          <li>列表222</li>
+          <li>列表223</li>
+          <li>列表224</li>
+          <li>列表225</li>
+          <li>列表226</li>
+          <li>列表227</li>
+          <li>列表228</li>
+          <li>列表229</li>
+          <li>列表230</li>
+          <li>列表231</li>
+          <li>列表232</li>
+          <li>列表233</li>
+          <li>列表234</li>
+          <li>列表235</li>
+          <li>列表236</li>
+          <li>列表237</li>
+          <li>列表238</li>
+          <li>列表239</li>
+          <li>列表240</li>
+          <li>列表241</li>
+          <li>列表242</li>
+          <li>列表243</li>
+          <li>列表244</li>
+          <li>列表245</li>
+          <li>列表246</li>
+          <li>列表247</li>
+          <li>列表248</li>
+          <li>列表249</li>
+          <li>列表250</li>
+        </ul>
+      </div>
+      <div v-if="godsChose == 3">
+        <ul>
+          <li @click="liClick">数据31</li>
+          <li>数据32</li>
+          <li>数据33</li>
+          <li>数据34</li>
+          <li>数据35</li>
+          <li>数据36</li>
+          <li>数据37</li>
+          <li>数据38</li>
+          <li>数据39</li>
+          <li>数据310</li>
+          <li>数据311</li>
+          <li>数据312</li>
+          <li>数据313</li>
+          <li>数据314</li>
+          <li>数据315</li>
+          <li>数据316</li>
+          <li>数据317</li>
+          <li>数据318</li>
+          <li>数据319</li>
+          <li>数据320</li>
+          <li>数据321</li>
+          <li>数据322</li>
+          <li>数据323</li>
+          <li>数据324</li>
+          <li>数据325</li>
+          <li>数据326</li>
+          <li>数据327</li>
+          <li>数据328</li>
+          <li>数据329</li>
+          <li>数据330</li>
+          <li>数据331</li>
+          <li>数据332</li>
+          <li>数据333</li>
+          <li>数据334</li>
+          <li>数据335</li>
+          <li>数据336</li>
+          <li>数据337</li>
+          <li>数据338</li>
+          <li>数据339</li>
+          <li>数据340</li>
+          <li>数据341</li>
+          <li>数据342</li>
+          <li>数据343</li>
+          <li>数据344</li>
+          <li>数据345</li>
+          <li>数据346</li>
+          <li>数据347</li>
+          <li>数据348</li>
+          <li>数据349</li>
+          <li>数据350</li>
+        </ul>
+      </div>
+    </div>
+</template>
+
+<script>
+    export default {
+      name: "GrodsList",
+      props:{
+        godsChose:{
+          type: Number,
+          default(){
+            return 1;
+          },
+        },
+      },
+      data(){
+        return{
+        }
+      },
+      methods:{
+        //路由跳转
+        liClick(){
+          // push 可以返回 replace 不可返回
+          this.$router.push('/detail/'+11111);
+        },
+      },
+    }
+</script>
+
+<style scoped>
+
+</style>

@@ -1,5 +1,13 @@
 module.exports = {
   presets: [
-    '@vue/cli-plugin-babel/preset'
-  ]
+    '@vue/cli-plugin-babel/preset',
+    {
+      "plugins": [
+        ["@nutui/babel-plugin-separate-import", {
+          "style": "css"
+        }]
+      ]
+    }
+  ],
 }
+

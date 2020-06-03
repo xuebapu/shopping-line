@@ -3,7 +3,7 @@
         <tab-bar-item path="/home">
             <img slot="item-icon" src="~assets/img/tabBar/home/home.png">
             <img slot="item-icon-active" src="~assets/img/tabBar/home/Ahome.svg" >
-            <div slot="item-text">主页</div>
+          <div slot="item-text">主页</div>
         </tab-bar-item>
         <tab-bar-item path="/category">
             <img slot="item-icon" src="~assets/img/tabBar/category/fenlei.png">

@@ -5,7 +5,10 @@ const Home = ()=>import("views/home/Home");
 const Category = ()=>import("views/category/Category");
 const Cart = ()=>import("views/cart/Cart");
 const Profile = ()=>import("views/profile/Profile");
+const Detail = ()=>import("views/detail/Detail");
 
+const Login = ()=>import("views/registerLogin/Login")
+const Register = ()=>import("views/registerLogin/Register")
 Vue.use(VueRouter)
   const routes = [
     {
@@ -28,7 +31,20 @@ Vue.use(VueRouter)
       path: '/profile',
       component:Profile,
     },
-
+    //动态路由
+    {
+      path: '/detail/:id',
+      component:Detail,
+    },
+    //动态路由
+    {
+      path: '/login',
+      component:Login,
+    },
+    {
+      path: '/register',
+      component:Register,
+    },
 ]
 
 const router = new VueRouter({

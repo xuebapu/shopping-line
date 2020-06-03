@@ -1,7 +1,10 @@
 <template>
   <div id="app">
+<!--   保持网页不销毁  用户体验感好 -->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <main-tab-bar></main-tab-bar>
-    <router-view/>
   </div>
 </template>
 
@@ -17,4 +20,5 @@
 </script>
 <style>
 @import "assets/css/base.css";
+
 </style>

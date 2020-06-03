@@ -2,7 +2,7 @@
     <div id="recommends">
       <div v-for="item in recommends">
         <a :href="item.link">
-          <img :src="item.image">
+          <img :src="item.image" alt="" @load="imgLoad">
           <div>{{item.title}}</div>
         </a>
       </div>
@@ -18,6 +18,13 @@
         default(){
           return [];
         }
+      },
+    },
+    methods:{
+      //让图片加载完后调用刷新保持scroll的不卡顿
+      imgLoad() {
+        //$bus 主线 提交时件
+        this.$bus.$emit('itemImgLoad')
       },
     },
   }

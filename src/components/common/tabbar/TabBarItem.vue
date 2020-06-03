@@ -30,7 +30,7 @@
             itemClick(){
                 // replace 网页返回键不能使用  push可以返回  .catch(err => err);排除点击多次导航 的报错
                 this.$router.replace(this.path).catch(err => err);
-                console.log(this.path)
+                // console.log(this.path)
             }
         },
         //计算属性
@@ -50,11 +50,13 @@
 
 <style scoped>
     .tab-bar-item{
-        flex: 1; text-align: center;
+        flex: 1;
+        text-align: center;
         height:49px;
         font-size: 12px;
     }
     .tab-bar-item> div> img{
+        margin-top: 5px;
         width: 24px;
         height: 24px;
     }

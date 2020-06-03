@@ -52,11 +52,13 @@
 
 <style scoped>
   .example-3d {
-    width: 100%;
+    width: 90%;
     height: 200px;
     /*离外层的高度*/
     padding-top: 20px;
     padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .swiper {
     height: 100%;
@@ -66,7 +68,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 30%;
     height: 175px;
     text-align: center;
     font-weight: bold;

@@ -4,7 +4,6 @@
       <div class="my-box" v-show="isShow">
         <div>
           <div>{{messages}}</div>
-          <img src="~assets/img/toast/succeed.png"/>
         </div>
       </div>
     </transition>
@@ -47,6 +46,10 @@
 
 <style scoped>
   .my-box{
+    text-align: center;
+    line-height: 20%;
+    width: 60%;
+    height: 10%;
     position: fixed;
     font-size: 12px;
     top: 50%;
@@ -58,8 +61,8 @@
     background-color: rgba(255, 35, 43, 0.58);
     z-index: 999;
     opacity: 0.8;
-    text-align: center;
   }
+  .my-box>div{ margin-top: 10%; font-size: 13px}
   /* .v-enter  元素起始状态  .v-leave-to  动画离开时候 动画结束 时间点 */
   .my-enter,
   .my-leave-to {

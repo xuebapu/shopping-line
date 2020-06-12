@@ -40,10 +40,7 @@
                 <div>{{row.format}}</div>
                 <div>
                   <span class="amount">￥{{row.price}}</span>
-                  <nut-stepper class="stepper" :value.sync="row.count" async-change @change="getgoods_num(row,i)" />
-                  <div class="del" @click="getdel(index,i)">
-                    <img src="https://sucai.suoluomei.cn/sucai_zs/images/20191121100950-3.png" alt />
-                  </div>
+                  <nut-stepper class="stepper" :value.sync="row.count" async-change @change="getgoods_num(index,i)" :simple="false" min="1"  @reduce-no-allow="reduceNoAllow"/>
                 </div>
               </div>
             </div>
@@ -58,10 +55,14 @@
         </div>
         <span>全选</span>
       </div>
-      <div class="refer">
+      <div class="refer" v-show="isManages">
         <span>合计:</span>
         <span>￥{{sum}}</span>
         <div class="settlement" @click="getbill()"><p>结算</p></div>
+      </div>
+      <div class="move" v-show="!isManages">
+        <div>加入收藏夹</div>
+        <div class="settlement" @click="remove"><p>移除</p></div>
       </div>
     </div>
   </div>
@@ -73,6 +74,14 @@
       name: "CartListSeond",
       components: {
         Scroll,
+      },
+      props:{
+        isManages:{
+          type:Boolean,
+          default(){
+            return false;
+          },
+        },
       },
       data() {
         return {
@@ -173,16 +182,25 @@
 
       mounted() {},
       methods: {
-        //删除商品
-        getdel(index,i) {
-          this.orderData[index].cartlist.splice(i, 1);
-          if (this.orderData[index].cartlist.length == 0) {
-            this.orderData.splice(index, 1);
+        // 去除商品
+        remove(){
+          if(this.isManages == false) {
+            this.orderData.forEach((items,i)=>{
+              //先判断商家选框是是否选着
+              if(items.select_shop == 1){
+                this.orderData.splice(i,1);
+              }else{
+                 //没选择时在判断独立商品
+                 items.cartlist.forEach((item,index)=>{
+                   if(item.select_goods == 1){
+                    items.cartlist.splice(index,1);
+                   }
+                 })
+              }
+            })
           }
-          this.getprice();
-          this.getwatchall();
+          this.sum = 0;
         },
-
         //选择商品
         getgoods(index, i) {
           var goods_status = this.orderData[index].cartlist[i].select_goods;
@@ -204,7 +222,6 @@
             this.orderData[index].select_shop = 1;
           }
           this.getprice();
-          this.getwatchall();
         },
         //店铺全选
         getshop(index) {
@@ -259,22 +276,24 @@
           }
         },
         // 变更商品数量
-        getgoods_num() {
+        getgoods_num(index,i) {
           this.getprice();
         },
         //总价钱
         getprice() {
-          let allPrice = 0;
-          for (let i in this.orderData) {
-            for (let j in this.orderData[i].cartlist) {
-              if (this.orderData[i].cartlist[j].select_goods == 1) {
-                allPrice +=
-                  this.orderData[i].cartlist[j].price *
-                  this.orderData[i].cartlist[j].count;
+          if(this.isManages) {
+            let allPrice = 0;
+            for (let i in this.orderData) {
+              for (let j in this.orderData[i].cartlist) {
+                if (this.orderData[i].cartlist[j].select_goods == 1) {
+                  allPrice +=
+                    this.orderData[i].cartlist[j].price *
+                    this.orderData[i].cartlist[j].count;
+                }
               }
             }
+            this.sum = allPrice;
           }
-          this.sum = allPrice;
         },
         //结账
         getbill() {
@@ -287,8 +306,14 @@
               }
             }
           }
-        }
-      }
+        },
+      //  达到最小值
+        reduceNoAllow(){
+          this.$toast.show('亲！已经达到最小值了哦',1500)
+        },
+      },
+
+
     }
 </script>
 
@@ -318,9 +343,7 @@
   .row>.detail>.info>div:nth-child(3){display: flex;height: 30px;font-size: 14px;margin-top: 5px;}
   .row>.detail>.info>div:nth-child(3)>span{color: var(--color-height-text); margin-top: 5px;}
 /*  步进数*/
-.row>.detail>.info>div:nth-child(3)>.stepper{position: fixed; right: 40px;width: 80px;}
-  /*删除*/
-  .row>.detail>.info>div:nth-child(3)>.del>img{ width: 25px; height: 25px; position: fixed;right: 10px }
+.row>.detail>.info>div:nth-child(3)>.stepper{position: fixed; right: 5%;width: 80px;}
 /* 结算*/
   .account{
     display: flex;
@@ -338,5 +361,8 @@
   .refer>span:nth-child(2){ font-size: 14px;color: var(--color-height-text); margin-top: 2px; margin-left: 5px;}
   /* 结算 */
   .refer>div{ position:fixed; right: 10px; bottom: 56px; height: 35px;width: 80px; background: #ff7510;color: white;border: #ffd912 2px solid ;border-radius: 20px;}
-  .refer>div>p{color: white;margin-top: -5px}
+  .refer>div>p{color: white;margin-top: -5%}
+  .move{ margin-left: 20%}
+  .move>div:nth-child(2){ position:fixed; right: 10px; bottom: 56px; height: 35px;width: 80px; background: #ff7510;color: white;border: #ffd912 2px solid ;border-radius: 20px;}
+  .move>div:nth-child(2)>p{color: white;margin-top: -5%}
 </style>

@@ -2,8 +2,10 @@
   <div class="cart">
     <nav-bar>
       <div slot="center">购物车(0)</div>
+      <div slot="right"><a @click="manage" v-show="isManage">管理</a></div>
+      <div slot="right"><a @click="manage" v-show="!isManage">完成</a></div>
     </nav-bar>
-    <cart-list-seond></cart-list-seond>
+    <cart-list-seond :isManages="isManage"></cart-list-seond>
   </div>
 </template>
 
@@ -20,6 +22,17 @@
         CartList,
         CartListSeond
       },
+      data(){
+        return{
+          isManage: true,
+        }
+      },
+    methods:{
+      manage(){
+        this.isManage = !this.isManage;
+        console.log(this.isManage)
+      },
+    },
     }
 </script>
 

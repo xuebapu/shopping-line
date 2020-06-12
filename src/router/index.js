@@ -6,6 +6,7 @@ const Category = ()=>import("views/category/Category");
 const Cart = ()=>import("views/cart/Cart");
 const Profile = ()=>import("views/profile/Profile");
 const Detail = ()=>import("views/detail/Detail");
+const CustomerService = ()=>import("views/customerService/CustomerService");
 
 const Login = ()=>import("views/registerLogin/Login")
 const Register = ()=>import("views/registerLogin/Register")
@@ -26,6 +27,7 @@ Vue.use(VueRouter)
     {
       path: '/cart',
       component:Cart,
+      meta:{auth:true}
     },
     {
       path: '/profile',
@@ -45,12 +47,17 @@ Vue.use(VueRouter)
       path: '/register',
       component:Register,
     },
+    //客服
+    {
+      path: '/service',
+      component:CustomerService,
+      meta:{auth:true}
+    },
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
-
 export default router

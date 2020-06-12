@@ -5,7 +5,7 @@
         <img src="~assets/img/tabBar/detail/dianpu.svg" alt="">
         <div>店铺</div>
       </div>
-      <div>
+      <div @click="customerService">
         <img src="~assets/img/tabBar/detail/kefu.svg" alt="">
         <div>客服</div>
       </div>
@@ -14,7 +14,7 @@
         <img src="~assets/img/tabBar/detail/Ashoucang.png" v-else />
         <div>收藏</div>
       </div>
-      <div @click="addCart">
+      <div @click="addCart" :class="denglu">
         <div>加入购物车</div>
       </div>
       <div>
@@ -33,24 +33,43 @@
       },
       data(){
         return{
+          denglu: '',
           isCollection:true,
+        }
+      },
+      created() {
+        if(this.$store.state.token != null){
+          this.denglu = 'denglu1'
+        }else{
+          this.denglu = 'denglu0'
         }
       },
       //
       methods:{
         collection(){
-          this.isCollection = !this.isCollection
+          if(this.denglu == 'denglu1') {
+            this.isCollection = !this.isCollection
+          }else{
+            this.$toast.show("亲！要登录哦",1500)
+          }
         },
         addCart(){
-          this.$toast.show('商品已添加至购物车',1500)
+          if(this.denglu == 'denglu1'){
+            this.$toast.show("已加入购物车",1500)
+          }else {
+            this.$toast.show("亲！要登录哦",1500)
+          }
+        },
+        //跳转
+        customerService(){
+          this.$router.push('/service')
         },
       },
-
     }
 </script>
 
 <style scoped>
-  #tab-bar >div{
+  #tab-bar >div:nth-child(1),#tab-bar >div:nth-child(2),#tab-bar >div:nth-child(3){
     align-items: center;
     justify-content: center;
     flex: 1;
@@ -63,7 +82,8 @@
     width: 24px;
     height: 24px;
   }
-  #tab-bar >div:nth-child(4){
+
+  .denglu1{
     font-size: 16px;
     display: flex;
     justify-content: center;
@@ -71,7 +91,15 @@
     flex: 2;
     background-color: #ff8198;
     text-align: center;
-
+  }
+  .denglu0{
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    background-color: rgba(255, 172, 209, 0.05);
+    text-align: center;
   }
   #tab-bar >div:nth-child(5){
     font-size: 16px;

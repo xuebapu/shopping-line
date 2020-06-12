@@ -38,9 +38,12 @@
         <input type="checkbox" v-model="checkedAll" @change="changeAllChecked">
       </div>
       <span>全选</span>
-      <div>
+      <div v-show="isManages">
         <div>合计：<span>￥{{allPrice}}</span></div>
         <el-button type="danger" round>结算</el-button>
+      </div>
+      <div v-show="!isManages">
+        <el-button type="danger" round>移除</el-button>
       </div>
     </div>
   </div>
@@ -55,6 +58,7 @@
       },
       data() {
         return {
+
           //控制数字的动画
           isNumShow:true,
           // 设置全选复选框初始状态为false,即未选中

@@ -1,12 +1,10 @@
 <template>
   <div class="example-3d">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide><img src="~assets/img/wpin/sp2.png"/></swiper-slide>
       <swiper-slide><img src="~assets/img/wpin/sp3.png"/></swiper-slide>
       <swiper-slide><img src="~assets/img/wpin/sp4.png"/></swiper-slide>
       <swiper-slide><img src="~assets/img/wpin/sp5.png"/></swiper-slide>
       <swiper-slide><img src="~assets/img/wpin/sp3.png"/></swiper-slide>
-      <swiper-slide><img src="~assets/img/wpin/sp2.png"/></swiper-slide>
       <swiper-slide><img src="~assets/img/wpin/sp4.png"/></swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -53,7 +51,7 @@
 <style scoped>
   .example-3d {
     width: 90%;
-    height: 200px;
+    height: 120px;
     /*离外层的高度*/
     padding-top: 20px;
     padding-bottom: 10px;

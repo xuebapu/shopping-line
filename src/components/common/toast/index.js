@@ -12,7 +12,7 @@ obj.install = function (Vue) {
 
   //4.toast.$el对应的就是一个div
   document.body.appendChild(toast.$el)
-
+  //可全局引用，挂载到Vue.prototype方便使用
   Vue.prototype.$toast = toast;
 }
 export default obj

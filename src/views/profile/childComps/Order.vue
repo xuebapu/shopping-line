@@ -6,8 +6,17 @@
           <div>查看全部订单 》</div>
         </div>
         <div class="xia">
-          <div>
-            <img src="~assets/img/tabBar/profile/order/daifukuan.svg">
+          <div @click="">
+            <nut-badge
+              :value="1"
+              top="5px"
+              right="5px"
+              class="item"
+              :isDot="true"
+            >
+              <img src="~assets/img/tabBar/profile/order/daifukuan.svg">
+            </nut-badge>
+
             <div>待付款</div>
           </div>
           <div>

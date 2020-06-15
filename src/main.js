@@ -10,12 +10,13 @@ import toast from "components/common/toast";
 import ElementUi from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
 //引入 nutui
-import { Stepper,Popup,SearchBar } from "@nutui/nutui";
+import { Stepper,Popup,SearchBar,Badge } from "@nutui/nutui";
 
 // //安装NutUI
 Stepper.install(Vue);
 Popup.install(Vue);
 SearchBar.install(Vue)
+Badge.install(Vue)
 
 Vue.config.productionTip = false
 

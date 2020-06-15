@@ -27,7 +27,6 @@ Vue.use(VueRouter)
     {
       path: '/cart',
       component:Cart,
-      meta:{auth:true}
     },
     {
       path: '/profile',

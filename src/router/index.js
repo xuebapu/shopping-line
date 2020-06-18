@@ -7,6 +7,7 @@ const Cart = ()=>import("views/cart/Cart");
 const Profile = ()=>import("views/profile/Profile");
 const Detail = ()=>import("views/detail/Detail");
 const CustomerService = ()=>import("views/customerService/CustomerService");
+const Setting = () => import("views/setProfile/SetProfile")
 
 const Login = ()=>import("views/registerLogin/Login")
 const Register = ()=>import("views/registerLogin/Register")
@@ -50,6 +51,12 @@ Vue.use(VueRouter)
     {
       path: '/service',
       component:CustomerService,
+      meta:{auth:true}
+    },
+    //设置个人信息
+    {
+      path: '/setting',
+      component:Setting,
       meta:{auth:true}
     },
 ]

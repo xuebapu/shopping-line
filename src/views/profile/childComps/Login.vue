@@ -1,12 +1,10 @@
 <template>
     <div class="login">
       <div class="shang">
-        <div v-show="isLogin">111</div>
-        <div v-show="!isLogin">未登录</div>
-
+        <div v-show="isLogin"><img src="~assets/img/tabBar/profile/tell/tx.jpg" alt=""></div>
+        <div v-show="!isLogin"><img src="~assets/img/tabBar/profile/tell/touxiang.svg" alt=""></div>
         <div v-show="isLogin">{{user}}</div>
         <div v-show="!isLogin" @click="loginClick">登录</div>
-        <div @click="remove" v-show="isLogin">退出登录</div>
       </div>
       <div class="zhong">
         <div>
@@ -86,21 +84,16 @@
         loginClick(){
           this.$router.push('/login');
         },
-        remove(){
-          console.log("11")
-          this.$store.commit("LOGINOUT");
-          //刷新页面
-          this.$router.go(0)
-          this.$router.push('/profile');
-        }
       },
     }
 </script>
 
 <style scoped>
   .shang{ display: flex;}
-  .shang>div:nth-child(1){width: 50px; height: 50px;border-radius: 50%; background: #ff7510;text-align: center;line-height: 50px; margin-top: 10px;margin-left: 3%}
-  .shang>div:nth-child(2){width: 50px; height: 50px;border-radius: 50%; background: #ff7510;text-align: center;line-height: 50px; margin-top: 10px;margin-left: 3%}
+  .shang>div:nth-child(1){width: 50px; height: 50px;border-radius: 50%;text-align: center;line-height: 50px; margin-top: 10px;margin-left: 3%}
+  .shang>div:nth-child(1)>img{width: 50px; height: 50px;border-radius: 50%}
+  .shang>div:nth-child(2){width: 50px; height: 50px;border-radius: 50%;text-align: center;line-height: 50px; margin-top: 10px;margin-left: 3%}
+  .shang>div:nth-child(2)>img{ width: 50px; height: 50px}
   .shang>div:nth-child(3){ font-size: 16px; margin-top: 8%; margin-left: 5%; }
   .shang>div:nth-child(4){ font-size: 16px; margin-top: 8%; margin-left: 5%; }
   .zhong{ display: flex; text-align: center;height: 30px; width: 100%;font-size: 12px;margin-left: auto;margin-top: 3%;margin-right: auto}

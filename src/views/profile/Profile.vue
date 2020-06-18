@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <nav-bar>
-      <div slot="right">设置</div>
+      <div slot="right" @click="setClick">设置</div>
     </nav-bar>
     <scroll class="content">
       <div>
@@ -33,7 +33,16 @@
 
       Scroll,
     },
-    methods:{},
+    data(){
+      return{
+        isPopup:false,
+      }
+    },
+    methods:{
+      setClick(){
+        this.$router.push("/setting")
+      }
+    },
     }
 </script>
 

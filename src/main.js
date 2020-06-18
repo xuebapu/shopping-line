@@ -10,9 +10,10 @@ import toast from "components/common/toast";
 import ElementUi from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
 //引入 nutui
-import { Stepper,Popup,SearchBar,Badge } from "@nutui/nutui";
+import { Stepper,Popup,SearchBar,Badge,Cell} from "@nutui/nutui";
 
 // //安装NutUI
+Cell.install(Vue);
 Stepper.install(Vue);
 Popup.install(Vue);
 SearchBar.install(Vue)
@@ -36,7 +37,6 @@ Router.prototype.push = function push(location) {
 }
 
 new Vue({
-  permission,
   router,
   store,
   render: h => h(App),

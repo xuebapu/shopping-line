@@ -88,6 +88,6 @@
   .content>div>.nut-cell:nth-child(9){ margin-top:3%;}
   .content>div>.nut-cell:nth-child(10){ margin-bottom: 3%;}
 
-  .content>div>.nut-cell:nth-child(11){margin-top: 3%;margin-bottom: 3%;height: 40px;}
-  .content>div>.nut-cell:nth-child(12){height: 40px;}
+  .content>div>.nut-cell:nth-child(11){margin-top: 3%;margin-bottom: 3%;height: 40px;text-align: center}
+  .content>div>.nut-cell:nth-child(12){height: 40px;text-align: center;text-align: center}
 </style>

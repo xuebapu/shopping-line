@@ -2,7 +2,6 @@
   <div class="detail">
 <!--    <div>{{id}}</div>-->
     <detail-nav-bar></detail-nav-bar>
-
     <scroll class="content">
       <ul>
           <li>1</li>
@@ -58,7 +57,7 @@
         </ul>
     </scroll>
 
-    <detail-botton></detail-botton>
+    <detail-botton @addCart="addToCart"></detail-botton>
   </div>
 </template>
 
@@ -73,17 +72,29 @@
         DetailNavBar,
         DetailBotton,
 
-
         Scroll,
       },
       data(){
         return{
-         id:null,
+         iid:null,
         }
       },
       created() {
-        this.id = this.$route.params.id
-      }
+        this.iid = this.$route.params.id
+      },
+      methods:{
+        addToCart(){
+          //获取购物车需要展示的信息
+          const product ={};
+          product.iid = this.iid;
+          product.count = 1;
+          //添加购物车
+          this.$store.dispatch('addCart',product)
+
+          //简单检验
+          console.log(this.$store.state.cartList[0].count)
+        },
+      },
 
     }
 </script>

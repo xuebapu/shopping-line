@@ -56,6 +56,7 @@
         addCart(){
           if(this.denglu == 'denglu1'){
             this.$toast.show("已加入购物车",1500)
+            this.$emit('addCart')
           }else {
             this.$toast.show("亲！要登录哦",1500)
           }
